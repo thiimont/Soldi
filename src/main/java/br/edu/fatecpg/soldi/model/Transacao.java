@@ -4,8 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @NoArgsConstructor
@@ -33,4 +35,14 @@ public class Transacao {
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
+
+    // Adicionei os seguintes campos abaixo pois preciso desses dados para
+    // retornar no grafico :D
+
+    @Column
+    private String categoria; // Ex: "Alimentação", "Transporte", etc.
+
+    @Column(nullable = false)
+    @CreationTimestamp
+    private LocalDateTime data_transacao;
 }
