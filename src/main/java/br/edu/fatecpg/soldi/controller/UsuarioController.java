@@ -27,10 +27,6 @@ public class UsuarioController {
         return ResponseEntity.ok(saldo);
     }
 
-    /**
-     * GET /api/v1/usuarios/{uuid}/transacoes/recentes
-     * Retorna as últimas 5 transações do usuário
-     */
     @GetMapping("/{uuid}/transacoes/recentes")
     public ResponseEntity<List<TransacaoResumoDTO>> getTransacoesRecentes(
             @PathVariable("uuid") UUID uuidUsuario) {
@@ -38,10 +34,7 @@ public class UsuarioController {
         return ResponseEntity.ok(transacoes);
     }
 
-    /**
-     * GET /api/v1/usuarios/{uuid}/analytics/gastos-categoria
-     * Retorna gastos agrupados por categoria para o gráfico de pizza
-     */
+
     @GetMapping("/{uuid}/analytics/gastos-categoria")
     public ResponseEntity<List<GastoPorCategoriaDTO>> getGastosPorCategoria(
             @PathVariable("uuid") UUID uuidUsuario) {

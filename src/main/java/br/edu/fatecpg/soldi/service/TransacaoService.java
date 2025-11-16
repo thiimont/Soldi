@@ -24,16 +24,14 @@ public class TransacaoService {
      */
     public List<TransacaoResumoDTO> getTransacoesRecentes(UUID uuidUsuario) {
         List<Transacao> transacoes = transacaoRepository
-                .findTop5ByUsuario_UuidExternoOrderByDataTransacaoDesc(uuidUsuario);
+                .buscarUltimas5(uuidUsuario);
 
         return transacoes.stream()
                 .map(this::converterParaResumoDTO)
                 .collect(Collectors.toList());
     }
 
-    /**
-     * Calcula gastos agrupados por categoria (apenas DESPESAS)
-     */
+
     public List<GastoPorCategoriaDTO> getGastosPorCategoria(UUID uuidUsuario) {
         List<Transacao> despesas = transacaoRepository
                 .findByUsuarioUuidAndTipo(uuidUsuario, "DESPESA");
@@ -74,9 +72,7 @@ public class TransacaoService {
                 .collect(Collectors.toList());
     }
 
-    /**
-     * Converte Transacao para TransacaoResumoDTO
-     */
+
     private TransacaoResumoDTO converterParaResumoDTO(Transacao transacao) {
         return new TransacaoResumoDTO(
                 transacao.getUuid_externo(),
