@@ -15,5 +15,5 @@ public class GastoPorCategoriaDTO {
     private String categoria;
     private BigDecimal total;
     private Long quantidadeTransacoes;
-    private Double percentual; // Percentual em relação ao total de despesas
+    private Double percentual;
 }
