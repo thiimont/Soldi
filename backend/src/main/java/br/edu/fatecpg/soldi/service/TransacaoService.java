@@ -89,9 +89,13 @@ public class TransacaoService {
         );
     }
 
-    public List<TransacaoResumoDTO> listarTodasTransacoes() {
-        return transacaoRepository.findAll()
-                .stream().map(t -> new TransacaoResumoDTO(t.getUuidExterno(), t.getTipo(), t.getValor(), t.getDescricao(), t.getCategoria(), t.getDataTransacao()))
+    public List<TransacaoResumoDTO> listarTodasTransacoes(UUID uuidUsuario) {
+        Usuario usuario = usuarioRepository.findByUuidExterno(uuidUsuario)
+                .orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado."));
+
+        return usuario.getTransacoes()
+                .stream()
+                .map(t -> new TransacaoResumoDTO(t.getUuidExterno(), t.getTipo(), t.getValor(), t.getDescricao(), t.getCategoria(), t.getDataTransacao()))
                 .toList();
     }
 
