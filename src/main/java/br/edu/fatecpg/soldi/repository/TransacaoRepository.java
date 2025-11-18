@@ -14,12 +14,12 @@ import java.util.UUID;
 public interface TransacaoRepository extends JpaRepository<Transacao, Long> {
     Optional<Transacao> findByUuidExterno(UUID uuidExterno);
 
-    @Query("SELECT t FROM Transacao t WHERE t.usuario.uuid_externo = :uuidUsuario ORDER BY t.data_transacao DESC LIMIT 5")
+    @Query("SELECT t FROM Transacao t WHERE t.usuario.uuidExterno = :uuidUsuario ORDER BY t.dataTransacao DESC LIMIT 5")
     List<Transacao> buscarUltimasCinco(@Param("uuidUsuario") UUID uuidUsuario);
 
-    @Query("SELECT t FROM Transacao t WHERE t.usuario.uuid_externo = :uuidUsuario")
+    @Query("SELECT t FROM Transacao t WHERE t.usuario.uuidExterno = :uuidUsuario")
     List<Transacao> findAllByUsuarioUuid(@Param("uuidUsuario") UUID uuidUsuario);
 
-    @Query("SELECT t FROM Transacao t WHERE t.usuario.uuid_externo = :uuidUsuario AND t.tipo = :tipo")
+    @Query("SELECT t FROM Transacao t WHERE t.usuario.uuidExterno = :uuidUsuario AND t.tipo = :tipo")
     List<Transacao> findByUsuarioUuidAndTipo(@Param("uuidUsuario") UUID uuidUsuario, @Param("tipo") String tipo);
 }
