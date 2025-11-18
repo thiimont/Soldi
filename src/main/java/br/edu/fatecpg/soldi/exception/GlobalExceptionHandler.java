@@ -18,7 +18,6 @@ public class GlobalExceptionHandler {
     errorResponse.put("timestamp", LocalDateTime.now());
     errorResponse.put("status", HttpStatus.NOT_FOUND.value());
     errorResponse.put("error", "Recurso não encontrado");
-    errorResponse.put("message", ex.getMessage());
 
     return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
   }
@@ -29,7 +28,6 @@ public class GlobalExceptionHandler {
     errorResponse.put("timestamp", LocalDateTime.now());
     errorResponse.put("status", HttpStatus.INTERNAL_SERVER_ERROR.value());
     errorResponse.put("error", "Erro interno do servidor");
-    errorResponse.put("message", ex.getMessage());
 
     return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
   }
