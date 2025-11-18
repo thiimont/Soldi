@@ -1,5 +1,6 @@
 package br.edu.fatecpg.soldi.service;
 
+import br.edu.fatecpg.soldi.dto.request.AtualizarTransacaoDTO;
 import br.edu.fatecpg.soldi.dto.request.CriarTransacaoDTO;
 import br.edu.fatecpg.soldi.dto.response.GastoPorCategoriaDTO;
 import br.edu.fatecpg.soldi.dto.response.TransacaoResumoDTO;
@@ -76,18 +77,18 @@ public class TransacaoService {
 
     private TransacaoResumoDTO converterParaResumoDTO(Transacao transacao) {
         return new TransacaoResumoDTO(
-                transacao.getUuid_externo(),
+                transacao.getUuidExterno(),
                 transacao.getTipo(),
                 transacao.getValor(),
                 transacao.getDescricao(),
                 transacao.getCategoria(),
-                transacao.getData_transacao()
+                transacao.getDataTransacao()
         );
     }
 
     public List<TransacaoResumoDTO> listarTodasTransacoes() {
         return transacaoRepository.findAll()
-                .stream().map(t -> new TransacaoResumoDTO(t.getUuid_externo(), t.getTipo(), t.getValor(), t.getDescricao(), t.getCategoria(), t.getData_transacao()))
+                .stream().map(t -> new TransacaoResumoDTO(t.getUuidExterno(), t.getTipo(), t.getValor(), t.getDescricao(), t.getCategoria(), t.getDataTransacao()))
                 .toList();
     }
 
@@ -110,7 +111,7 @@ public class TransacaoService {
         return converterParaResumoDTO(transacao);
     }
 
-    public TransacaoResumoDTO atualizarTransacao(UUID uuidTransacao, CriarTransacaoDTO transacaoAtualizada) {
+    public TransacaoResumoDTO atualizarTransacao(UUID uuidTransacao, AtualizarTransacaoDTO transacaoAtualizada) {
         Transacao transacao = transacaoRepository.findByUuidExterno(uuidTransacao)
                 .orElseThrow(() -> new ResourceNotFoundException("Transação não encontrada."));
 
