@@ -1,5 +1,7 @@
 package br.edu.fatecpg.soldi.dto.request;
 
+import br.edu.fatecpg.soldi.model.TipoTransacao;
+
 import java.math.BigDecimal;
 
-public record AtualizarTransacaoDTO(String tipo, BigDecimal valor, String descricao, String categoria) {}
+public record AtualizarTransacaoDTO(TipoTransacao tipo, BigDecimal valor, String descricao, String categoria) {}
