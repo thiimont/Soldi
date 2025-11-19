@@ -22,8 +22,7 @@ public class UsuarioService {
 
 
     public SaldoResponseDTO getSaldo(UUID uuidUsuario) {
-        // Verificar se usuário existe
-        Usuario usuario = buscarPorUuid(uuidUsuario);
+        if(!usuarioRepository.existsByUuidExterno(uuidUsuario)) throw new ResourceNotFoundException("Usuário não encontrado.");
 
         // Buscar todas as transações do usuário
         List<Transacao> transacoes = transacaoRepository.findAllByUsuarioUuid(uuidUsuario);
@@ -44,14 +43,5 @@ public class UsuarioService {
         BigDecimal saldoTotal = totalReceitas.subtract(totalDespesas);
 
         return new SaldoResponseDTO(saldoTotal, totalReceitas, totalDespesas);
-    }
-
-    /**
-     * Busca um usuário por UUID
-     */
-    public Usuario buscarPorUuid(UUID uuidUsuario) {
-        return usuarioRepository.findByUuidExterno(uuidUsuario)
-                .orElseThrow(() -> new ResourceNotFoundException(
-                        "Usuário não encontrado com UUID: " + uuidUsuario));
     }
 }
