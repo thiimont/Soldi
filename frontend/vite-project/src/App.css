@@ -5,6 +5,7 @@
   justify-content: center;
   background: #ffffff;
   padding: 16px;
+  overflow-x: hidden;
 }
 .login-box{
     background: #ffffff;
@@ -15,9 +16,12 @@
 }
 .login-form{ 
     display: flex;
+    justify-content:flex-end; /* envia para a direita */
+    align-items: center;
     background: rgb(255, 255, 255);
     height:100%;
     max-width: 3xl;
     width: 100%;
-    padding: 16px; 
+    padding-right: 40px; 
+    
 }
