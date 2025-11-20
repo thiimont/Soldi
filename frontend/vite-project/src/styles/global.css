@@ -95,3 +95,46 @@
   display: block;   
   margin: 0 auto;
 }
+
+/* Arrumar responsividade */
+@media (max-width: 768px) {
+
+  .logo-area {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo-image {
+    max-width: 180px !important;
+  }
+
+  .card {
+    max-width: 320px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .container {
+    padding: 8px;
+  }
+
+  .logo-image {
+    max-width: 140px !important;
+  }
+
+  .card {
+    max-width: 300px;
+    padding: 20px;
+  }
+
+  .card-title {
+    font-size: 20px;
+  }
+
+  .btn-login {
+    font-size: 16px;
+  }
+}
