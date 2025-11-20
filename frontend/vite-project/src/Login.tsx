@@ -10,6 +10,7 @@ import {
 import { Input } from './components/input.tsx'
 import { Label } from './components/label.tsx'
 import { Button } from './components/button.tsx'
+import Logo  from './assets/logoSoldi.png'; // ajuste o caminho correto!
 
 function Login() {
   return (
@@ -17,7 +18,7 @@ function Login() {
      <main className="container">
           <div className="login-box">
             <section className="login-form">
-              <Card>
+              <img src={Logo} alt="Imagem de login" className="logo-image" />              <Card>
                 <CardHeader >
                   <CardTitle className="text-2xl font-bold tracking tighter">
                     Entre com sua conta
