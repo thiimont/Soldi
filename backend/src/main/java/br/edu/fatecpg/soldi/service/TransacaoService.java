@@ -5,6 +5,7 @@ import br.edu.fatecpg.soldi.dto.request.CriarTransacaoDTO;
 import br.edu.fatecpg.soldi.dto.response.GastoPorCategoriaDTO;
 import br.edu.fatecpg.soldi.dto.response.TransacaoResumoDTO;
 import br.edu.fatecpg.soldi.exception.ResourceNotFoundException;
+import br.edu.fatecpg.soldi.model.TipoTransacao;
 import br.edu.fatecpg.soldi.model.Transacao;
 import br.edu.fatecpg.soldi.model.Usuario;
 import br.edu.fatecpg.soldi.repository.TransacaoRepository;
@@ -39,7 +40,7 @@ public class TransacaoService {
 
     public List<GastoPorCategoriaDTO> getGastosPorCategoria(UUID uuidUsuario) {
         List<Transacao> despesas = transacaoRepository
-                .findByUsuarioUuidAndTipo(uuidUsuario, "DESPESA");
+                .findByUsuarioUuidAndTipo(uuidUsuario, TipoTransacao.DESPESA);
 
         if (despesas.isEmpty()) {
             return Collections.emptyList();
