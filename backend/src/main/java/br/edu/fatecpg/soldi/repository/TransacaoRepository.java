@@ -1,5 +1,6 @@
 package br.edu.fatecpg.soldi.repository;
 
+import br.edu.fatecpg.soldi.model.TipoTransacao;
 import br.edu.fatecpg.soldi.model.Transacao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -21,5 +22,5 @@ public interface TransacaoRepository extends JpaRepository<Transacao, Long> {
     List<Transacao> findAllByUsuarioUuid(@Param("uuidUsuario") UUID uuidUsuario);
 
     @Query("SELECT t FROM Transacao t WHERE t.usuario.uuidExterno = :uuidUsuario AND t.tipo = :tipo")
-    List<Transacao> findByUsuarioUuidAndTipo(@Param("uuidUsuario") UUID uuidUsuario, @Param("tipo") String tipo);
+    List<Transacao> findByUsuarioUuidAndTipo(@Param("uuidUsuario") UUID uuidUsuario, @Param("tipo") TipoTransacao tipo);
 }
