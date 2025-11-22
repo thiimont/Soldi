@@ -7,6 +7,7 @@ import br.edu.fatecpg.soldi.dto.response.TransacaoResumoDTO;
 import br.edu.fatecpg.soldi.service.ChatService;
 import br.edu.fatecpg.soldi.service.TransacaoService;
 import br.edu.fatecpg.soldi.service.UsuarioService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,24 +24,28 @@ public class UsuarioController {
     private final ChatService chatService;
 
     @GetMapping("/me/saldo")
+    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<SaldoResponseDTO> getSaldo() {
         SaldoResponseDTO saldo = usuarioService.getSaldo();
         return ResponseEntity.ok(saldo);
     }
 
     @GetMapping("/me/transacoes/todas-transacoes")
+    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<List<TransacaoResumoDTO>> listarTodas() {
         List<TransacaoResumoDTO> todasTransacoes = transacaoService.listarTodasTransacoes();
         return ResponseEntity.ok(todasTransacoes);
     }
 
     @GetMapping("/me/transacoes/ai-insight")
+    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<ChatResponseDTO> getAiInsight() {
         ChatResponseDTO resposta = chatService.getTransactionInsight();
         return ResponseEntity.ok(resposta);
     }
 
     @GetMapping("/me/transacoes/recentes")
+    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<List<TransacaoResumoDTO>> getTransacoesRecentes() {
         List<TransacaoResumoDTO> transacoes = transacaoService.getTransacoesRecentes();
         return ResponseEntity.ok(transacoes);
@@ -48,6 +53,7 @@ public class UsuarioController {
 
 
     @GetMapping("/me/analytics/gastos-categoria")
+    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<List<GastoPorCategoriaDTO>> getGastosPorCategoria() {
         List<GastoPorCategoriaDTO> gastos = transacaoService.getGastosPorCategoria();
         return ResponseEntity.ok(gastos);
