@@ -22,14 +22,14 @@ public class GlobalExceptionHandler {
     return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
   }
 
-    @ExceptionHandler(UserNotAuthorizedException.class)
-    public ResponseEntity<Map<String, Object>> handleUserNotAuthorized(UserNotAuthorizedException ex) {
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<Map<String, Object>> handleAccessDenied(AccessDeniedException ex) {
         Map<String, Object> errorResponse = new HashMap<>();
         errorResponse.put("timestamp", LocalDateTime.now());
-        errorResponse.put("status", HttpStatus.UNAUTHORIZED.value());
+        errorResponse.put("status", HttpStatus.FORBIDDEN.value());
         errorResponse.put("error", ex.getMessage());
 
-        return new ResponseEntity<>(errorResponse, HttpStatus.UNAUTHORIZED);
+        return new ResponseEntity<>(errorResponse, HttpStatus.FORBIDDEN);
     }
 
   @ExceptionHandler(Exception.class)
