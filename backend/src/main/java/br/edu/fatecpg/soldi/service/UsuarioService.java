@@ -7,6 +7,7 @@ import br.edu.fatecpg.soldi.model.Transacao;
 import br.edu.fatecpg.soldi.repository.TransacaoRepository;
 import br.edu.fatecpg.soldi.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -21,7 +22,8 @@ public class UsuarioService {
     private final TransacaoRepository transacaoRepository;
 
 
-    public SaldoResponseDTO getSaldo(UUID uuidUsuario) {
+    public SaldoResponseDTO getSaldo() {
+        UUID uuidUsuario = (UUID) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if(!usuarioRepository.existsByUuidExterno(uuidUsuario)) throw new ResourceNotFoundException("Usuário não encontrado.");
 
         // Buscar todas as transações do usuário
