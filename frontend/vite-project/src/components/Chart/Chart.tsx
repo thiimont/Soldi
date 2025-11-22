@@ -6,27 +6,7 @@ import "./Chart.css";
 
 export const Chart = () => {
     return (
-        <div className="App">
-            {/* <div className="dataCard revenueCard"> 
-                <Line data={{
-                    labels: sourceData.map((data) => data.label),
-                    datasets:[
-                        {
-                            label: "Revenue",
-                            data: sourceData.map((data) => data.value),
-                            backgroundColor: "rgba(75,192,192,1)",
-                            borderColor: "rgba(75,192,192,1)",
-                        },
-                        {
-                            label: "Cost",
-                            data: sourceData.map((data) => data.value),
-                            backgroundColor: "rgba(192, 122, 75, 1)",
-                            borderColor: "rgba(192, 132, 75, 1)",
-                        },
-                    ],
-                }} 
-                />
-            </div> */}
+        <div className="chartContainer">
             <div className="dataCard bar customerCard">
                 <Bar 
                     data={{

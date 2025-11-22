@@ -39,9 +39,10 @@ function App() {
           <Chart />
         </div>
 
-        <div id="transacao"style={{ marginTop: "30px" }}>
+        <div id="transacao"style={{ marginTop: "10px" }}>
           <Table />
         </div>
+
         <ChatBot />
       </main>
     </div>
