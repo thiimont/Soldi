@@ -1,0 +1,9 @@
+package br.edu.fatecpg.soldi.exception;
+
+public class AccessDeniedException extends RuntimeException {
+    public AccessDeniedException(){ super("Você não tem permissão para acessar este recurso."); }
+
+    public AccessDeniedException(String message) {
+        super(message);
+    }
+}
