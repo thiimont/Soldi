@@ -1,44 +1,32 @@
 import "./Modal.css";
 
-// type ChatSidebarProps = {
-//   isOpen: boolean;
-//   onClose: () => void;
-// };
+interface ModalProps {
+  onClose: () => void;
+}
 
-export function ChatBot({}) {
+export default function Modal({ onClose }: ModalProps) {
   return (
-    <div className="container-modal">
-      <div className="chatbot-popup">
-        {/* Header */}
-        <div className="chat-header">
-          <div className="header-info">
-            <h2>ChatBot</h2>
-          </div> 
-          <button className="material-symbols">v</button>   
+    <div className="chatbox-container">
+      <div className="chatbox">
+        <div className="chatbox-header">
+          <span>SoldIA • Assistente</span>
+          <button className="close-btn" onClick={onClose}>×</button>
         </div>
-      </div>
-      {/* CHAT Body */}
-      <div className="chat-body">
-        <div className="message bot-message">
-        <p className="message-text">
-          Olá! eu sou o SoldIA
-        </p>
-      </div>
-      <div className="message user-message">
-        <p className="message-text">
-          Gostaria de organizar minhas finanças
-        </p>
-      </div>
-    </div>
-  
-    {/* CHAT Footer */}
-    <div className="chat-footer">
-      <form action="" className="chat-form" id="">
-          <button className="material-symbols">Ver histórico de Transação</button>
-      </form>
-    </div>
-  </div>
-  
 
+        <div className="chatbox-body">
+          <div className="message bot-message">
+            <p className="message-text">
+              Claro! Aqui está seu histórico de transações recentes:
+              <br /><br />
+              🔹 Compra mercado — R$ 82,00  
+              🔹 Uber — R$ 14,30  
+              🔹 Restaurante — R$ 45,00  
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
   );
 }
