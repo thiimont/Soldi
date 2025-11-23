@@ -22,16 +22,6 @@ public class GlobalExceptionHandler {
     return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
   }
 
-    @ExceptionHandler(AccessDeniedException.class)
-    public ResponseEntity<Map<String, Object>> handleAccessDenied(AccessDeniedException ex) {
-        Map<String, Object> errorResponse = new HashMap<>();
-        errorResponse.put("timestamp", LocalDateTime.now());
-        errorResponse.put("status", HttpStatus.FORBIDDEN.value());
-        errorResponse.put("error", ex.getMessage());
-
-        return new ResponseEntity<>(errorResponse, HttpStatus.FORBIDDEN);
-    }
-
   @ExceptionHandler(Exception.class)
   public ResponseEntity<Map<String, Object>> handleGenericException(Exception ex) {
     Map<String, Object> errorResponse = new HashMap<>();
