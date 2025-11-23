@@ -1,16 +1,18 @@
 package br.edu.fatecpg.soldi.controller;
 
+import br.edu.fatecpg.soldi.dto.response.ChatResponseDTO;
 import br.edu.fatecpg.soldi.dto.response.GastoPorCategoriaDTO;
 import br.edu.fatecpg.soldi.dto.response.SaldoResponseDTO;
 import br.edu.fatecpg.soldi.dto.response.TransacaoResumoDTO;
+import br.edu.fatecpg.soldi.service.ChatService;
 import br.edu.fatecpg.soldi.service.TransacaoService;
 import br.edu.fatecpg.soldi.service.UsuarioService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/usuarios")
@@ -19,25 +21,41 @@ public class UsuarioController {
 
     private final UsuarioService usuarioService;
     private final TransacaoService transacaoService;
+    private final ChatService chatService;
 
-    @GetMapping("/{uuid}/saldo")
-    public ResponseEntity<SaldoResponseDTO> getSaldo(@PathVariable("uuid") UUID uuidUsuario) {
-        SaldoResponseDTO saldo = usuarioService.getSaldo(uuidUsuario);
+    @GetMapping("/me/saldo")
+    @SecurityRequirement(name = "bearerAuth")
+    public ResponseEntity<SaldoResponseDTO> getSaldo() {
+        SaldoResponseDTO saldo = usuarioService.getSaldo();
         return ResponseEntity.ok(saldo);
     }
 
-    @GetMapping("/{uuid}/transacoes/recentes")
-    public ResponseEntity<List<TransacaoResumoDTO>> getTransacoesRecentes(
-            @PathVariable("uuid") UUID uuidUsuario) {
-        List<TransacaoResumoDTO> transacoes = transacaoService.getTransacoesRecentes(uuidUsuario);
+    @GetMapping("/me/transacoes/todas-transacoes")
+    @SecurityRequirement(name = "bearerAuth")
+    public ResponseEntity<List<TransacaoResumoDTO>> listarTodas() {
+        List<TransacaoResumoDTO> todasTransacoes = transacaoService.listarTodasTransacoes();
+        return ResponseEntity.ok(todasTransacoes);
+    }
+
+    @GetMapping("/me/transacoes/ai-insight")
+    @SecurityRequirement(name = "bearerAuth")
+    public ResponseEntity<ChatResponseDTO> getAiInsight() {
+        ChatResponseDTO resposta = chatService.getTransactionInsight();
+        return ResponseEntity.ok(resposta);
+    }
+
+    @GetMapping("/me/transacoes/recentes")
+    @SecurityRequirement(name = "bearerAuth")
+    public ResponseEntity<List<TransacaoResumoDTO>> getTransacoesRecentes() {
+        List<TransacaoResumoDTO> transacoes = transacaoService.getTransacoesRecentes();
         return ResponseEntity.ok(transacoes);
     }
 
 
-    @GetMapping("/{uuid}/analytics/gastos-categoria")
-    public ResponseEntity<List<GastoPorCategoriaDTO>> getGastosPorCategoria(
-            @PathVariable("uuid") UUID uuidUsuario) {
-        List<GastoPorCategoriaDTO> gastos = transacaoService.getGastosPorCategoria(uuidUsuario);
+    @GetMapping("/me/analytics/gastos-categoria")
+    @SecurityRequirement(name = "bearerAuth")
+    public ResponseEntity<List<GastoPorCategoriaDTO>> getGastosPorCategoria() {
+        List<GastoPorCategoriaDTO> gastos = transacaoService.getGastosPorCategoria();
         return ResponseEntity.ok(gastos);
     }
 }
