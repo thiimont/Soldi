@@ -23,8 +23,9 @@ public class Transacao {
     @Column(name = "uuid_externo", nullable = false, unique = true)
     private UUID uuidExterno = UUID.randomUUID();
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String tipo; // "RECEITA" ou "DESPESA"
+    private TipoTransacao tipo;
 
     @Column(nullable = false)
     private BigDecimal valor;
@@ -33,7 +34,7 @@ public class Transacao {
     private String descricao;
 
     @Column(nullable = false)
-    private String categoria; // Ex: "Alimentação", "Transporte", "Salário", etc.
+    private String categoria;
 
     @Column(name = "data_transacao", nullable = false)
     @CreationTimestamp
