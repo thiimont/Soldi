@@ -3,8 +3,8 @@ import { Card } from "../components/Card/Card";
 import { Nav } from "../components/Sidebar/Sidebar"; 
 import { Table } from "../components/Table/Table";
 import Grafico  from "../components/Grafico/Grafico"; //default nao tem {}
-import  { Chart }   from "../components/Chart/Chart"; 
-import  { ChatBot }   from "../components/Modal/modal"; 
+import  { Chart }   from "../components/Chart/Chart";
+import  Button  from "../components/Button/Button"; 
 
 function App() {
   return (
@@ -43,10 +43,12 @@ function App() {
           <Table />
         </div>
 
-        <ChatBot />
+        <Button /> 
+
       </main>
     </div>
   );
 }
 
 export default App;
+
