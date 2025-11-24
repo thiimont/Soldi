@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.ai.openai.OpenAiChatModel;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -19,7 +20,8 @@ public class ChatService {
     private final OpenAiChatModel openAiChatModel;
     private final TransacaoRepository transacaoRepository;
 
-    public ChatResponseDTO getTransactionInsight(UUID uuidUsuario) {
+    public ChatResponseDTO getTransactionInsight() {
+        UUID uuidUsuario = (UUID) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<TransacaoResumoDTO> lista = transacaoRepository.findAllByUsuarioUuid(uuidUsuario)
                 .stream()
                 .map(t -> new TransacaoResumoDTO(t.getUuidExterno(), t.getTipo(), t.getValor(), t.getDescricao(), t.getCategoria(), t.getDataTransacao()))
@@ -35,6 +37,6 @@ public class ChatService {
 
         ChatResponse response = openAiChatModel.call(prompt);
         String responseStr = response.getResult().getOutput().getText();
-        return new ChatResponseDTO(uuidUsuario, responseStr, LocalDateTime.now());
+        return new ChatResponseDTO(responseStr, LocalDateTime.now());
     }
 }
