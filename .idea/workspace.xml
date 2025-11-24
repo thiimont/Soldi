@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a13cc1a2-53f6-4f92-b19b-6061cbe35ea4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/Register.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/services/api.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vite-project/src/components/input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/input.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vite-project/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite-project/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vite-project/src/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite-project/src/styles/global.css" afterDir="false" />
-    </list>
+    <list default="true" id="a13cc1a2-53f6-4f92-b19b-6061cbe35ea4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,7 +38,7 @@
     "Application.SoldiApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Merging feature/home"
+    "git-widget-placeholder": "feature/home"
   }
 }]]></component>
   <component name="RunManager">
@@ -82,6 +72,15 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
