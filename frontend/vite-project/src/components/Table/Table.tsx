@@ -19,6 +19,12 @@ export const Table: React.FC<TableProps> = ({ transacoes = [] }) => {
     return date.toLocaleDateString("pt-BR");
   };
 
+  // Formatar ID: UUID → TRX-001, TRX-002, etc.
+  const formatTransactionId = (uuid: string, index: number) => {
+    const numero = String(index + 1).padStart(3, '0');
+    return `TRX-${numero}`;
+  };
+
   // Calcular total (receitas - despesas)
   const total = transacoes.reduce((acc, t) => {
     return acc + (t.tipo === 'RECEITA' ? t.valor : -t.valor);
@@ -54,10 +60,10 @@ export const Table: React.FC<TableProps> = ({ transacoes = [] }) => {
         </thead>
 
         <tbody>
-          {transacoes.map((item) => (
+          {transacoes.map((item, index) => (
             <tr key={item.uuidTransacao}>
               <td className="bold" data-label="ID">
-                {item.uuidTransacao.substring(0, 8)}...
+                {formatTransactionId(item.uuidTransacao, index)}
               </td>
               <td 
                 data-label="Tipo" 
