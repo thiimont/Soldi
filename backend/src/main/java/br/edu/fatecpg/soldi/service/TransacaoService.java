@@ -11,6 +11,8 @@ import br.edu.fatecpg.soldi.model.Usuario;
 import br.edu.fatecpg.soldi.repository.TransacaoRepository;
 import br.edu.fatecpg.soldi.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -28,7 +30,8 @@ public class TransacaoService {
     /**
      * Retorna as últimas 5 transações de um usuário
      */
-    public List<TransacaoResumoDTO> getTransacoesRecentes(UUID uuidUsuario) {
+    public List<TransacaoResumoDTO> getTransacoesRecentes() {
+        UUID uuidUsuario = (UUID) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Transacao> transacoes = transacaoRepository
                 .buscarUltimasCinco(uuidUsuario);
 
@@ -38,7 +41,8 @@ public class TransacaoService {
     }
 
 
-    public List<GastoPorCategoriaDTO> getGastosPorCategoria(UUID uuidUsuario) {
+    public List<GastoPorCategoriaDTO> getGastosPorCategoria() {
+        UUID uuidUsuario = (UUID) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Transacao> despesas = transacaoRepository
                 .findByUsuarioUuidAndTipo(uuidUsuario, TipoTransacao.DESPESA);
 
@@ -90,9 +94,10 @@ public class TransacaoService {
         );
     }
 
-    public List<TransacaoResumoDTO> listarTodasTransacoes(UUID uuidUsuario) {
+    public List<TransacaoResumoDTO> listarTodasTransacoes() {
+        UUID uuidUsuario = (UUID) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Usuario usuario = usuarioRepository.findByUuidExterno(uuidUsuario)
-                .orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado."));
+                .orElseThrow(() -> new AccessDeniedException("Acesso negado"));
 
         return usuario.getTransacoes()
                 .stream()
@@ -101,8 +106,9 @@ public class TransacaoService {
     }
 
     public TransacaoResumoDTO criarTransacao(CriarTransacaoDTO criarTransacaoDto) {
-        Usuario usuario = usuarioRepository.findByUuidExterno(criarTransacaoDto.uuidUsuario())
-                .orElseThrow(() -> new ResourceNotFoundException("Usuário não encontrado."));
+        UUID uuidUsuario = (UUID) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Usuario usuario = usuarioRepository.findByUuidExterno(uuidUsuario)
+                .orElseThrow(() -> new AccessDeniedException("Acesso negado"));
 
         Transacao transacao = new Transacao();
         transacao.setTipo(criarTransacaoDto.tipo());
@@ -117,14 +123,16 @@ public class TransacaoService {
     }
 
     public TransacaoResumoDTO buscarTransacao(UUID uuidTransacao) {
-        Transacao transacao = transacaoRepository.findByUuidExterno(uuidTransacao)
+        UUID uuidUsuario = (UUID) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Transacao transacao = transacaoRepository.findByUuidExternoAndUsuarioUuidExterno(uuidTransacao, uuidUsuario)
                 .orElseThrow(() -> new ResourceNotFoundException("Transação não encontrada."));
 
         return converterParaResumoDTO(transacao);
     }
 
     public TransacaoResumoDTO atualizarTransacao(UUID uuidTransacao, AtualizarTransacaoDTO transacaoAtualizada) {
-        Transacao transacao = transacaoRepository.findByUuidExterno(uuidTransacao)
+        UUID uuidUsuario = (UUID) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Transacao transacao = transacaoRepository.findByUuidExternoAndUsuarioUuidExterno(uuidTransacao, uuidUsuario)
                 .orElseThrow(() -> new ResourceNotFoundException("Transação não encontrada."));
 
         transacao.setTipo(transacaoAtualizada.tipo());
@@ -137,7 +145,8 @@ public class TransacaoService {
     }
 
     public void deletarTransacao(UUID uuidTransacao) {
-        Transacao transacao = transacaoRepository.findByUuidExterno(uuidTransacao)
+        UUID uuidUsuario = (UUID) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Transacao transacao = transacaoRepository.findByUuidExternoAndUsuarioUuidExterno(uuidTransacao, uuidUsuario)
                 .orElseThrow(() -> new ResourceNotFoundException("Transação não encontrada."));
 
         transacaoRepository.delete(transacao);
