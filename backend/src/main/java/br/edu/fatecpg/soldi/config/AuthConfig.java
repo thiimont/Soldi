@@ -2,6 +2,7 @@ package br.edu.fatecpg.soldi.config;
 
 import br.edu.fatecpg.soldi.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -14,6 +15,6 @@ public class AuthConfig implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return usuarioRepository.findUsuarioByEmail(username).orElseThrow(() -> new UsernameNotFoundException(username));
+        return usuarioRepository.findUsuarioByEmail(username).orElseThrow(() -> new BadCredentialsException("Usuário ou senha incorretos"));
     }
 }
