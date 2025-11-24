@@ -4,7 +4,84 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a13cc1a2-53f6-4f92-b19b-6061cbe35ea4" name="Changes" comment="" />
+    <list default="true" id="a13cc1a2-53f6-4f92-b19b-6061cbe35ea4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/config/AuthConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/config/CustomCorsConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/config/JWTUserData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/config/SecurityFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/config/SwaggerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/config/TokenConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/dto/request/LoginRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/dto/request/RegistrarRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/dto/response/LoginResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/dto/response/RegistrarResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/exception/CustomAccessDeniedHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/exception/CustomAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/exception/PermissionErrorMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/service/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/App.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/Register.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/assets/chat.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/assets/grafico.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/assets/hamburgericon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/assets/login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/assets/logout.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/assets/saldo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/assets/transacoes.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/Button/Button.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/Button/Button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/Card/Card.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/Card/Card.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/Chart/Chart.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/Chart/Chart.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/Grafico/Grafico.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/Grafico/Grafico.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/Modal/Modal.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/Modal/Modal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/Sidebar/Sidebar.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/Sidebar/Sidebar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/Table/Table.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/Table/Table.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/config/api.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/data/revenueData.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/data/sourceData.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/hooks/useToken.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/pages/Home.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/services/api.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/services/auth.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/services/transacao.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/services/usuario.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/styles/Home.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite-project/src/types/api.types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/controller/TransacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/controller/TransacaoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/controller/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/dto/request/CriarTransacaoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/dto/request/CriarTransacaoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/dto/response/ChatResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/dto/response/ChatResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/model/Transacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/model/Transacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/model/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/repository/TransacaoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/repository/TransacaoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/repository/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/repository/UsuarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/service/ChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/service/ChatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/service/TransacaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/service/TransacaoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/service/UsuarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/vite-project/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite-project/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/vite-project/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite-project/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/vite-project/src/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite-project/src/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/vite-project/src/assets/react.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/vite-project/src/components/input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite-project/src/components/input.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/vite-project/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite-project/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/vite-project/src/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite-project/src/styles/global.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +117,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/home",
+    "git-widget-placeholder": "Merging feature/mobile",
     "last_opened_file_path": "/Users/frankoliveira/Desktop/Projetos Pessoais/Soldi",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
