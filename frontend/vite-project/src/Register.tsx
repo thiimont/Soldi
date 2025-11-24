@@ -17,6 +17,7 @@ function Register() {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const [confirmarSenha, setConfirmarSenha] = useState('');
   const [erro, setErro] = useState('');
   const [carregando, setCarregando] = useState(false);
   const [sucesso, setSucesso] = useState(false);
@@ -24,6 +25,19 @@ function Register() {
   const handleRegister = async (e: FormEvent) => {
     e.preventDefault();
     setErro('');
+
+    // Validar se as senhas são iguais
+    if (senha !== confirmarSenha) {
+      setErro('As senhas não coincidem!');
+      return;
+    }
+
+    // Validar tamanho mínimo da senha
+    if (senha.length < 6) {
+      setErro('A senha deve ter no mínimo 6 caracteres');
+      return;
+    }
+
     setCarregando(true);
 
     try {
@@ -83,17 +97,32 @@ function Register() {
                       required
                     />
                   </div>
+                  <br />
                   <div>
-                    <br />
                     <Label className="label-base" htmlFor="senha">Senha</Label>
                     <Input 
                       className="" 
                       id="senha" 
-                      placeholder="user123" 
+                      placeholder="Mínimo 6 caracteres" 
                       type="password"
                       value={senha}
                       onChange={(e) => setSenha(e.target.value)}
                       required
+                      minLength={6}
+                    />
+                  </div>
+                  <br />
+                  <div>
+                    <Label className="label-base" htmlFor="confirmarSenha">Confirmar Senha</Label>
+                    <Input 
+                      className="" 
+                      id="confirmarSenha" 
+                      placeholder="Digite a senha novamente" 
+                      type="password"
+                      value={confirmarSenha}
+                      onChange={(e) => setConfirmarSenha(e.target.value)}
+                      required
+                      minLength={6}
                     />
                   </div>
 
@@ -109,6 +138,7 @@ function Register() {
                     </p>
                   )}
 
+                  <br />
                   <Button 
                     className="btn-login" 
                     type="submit"
