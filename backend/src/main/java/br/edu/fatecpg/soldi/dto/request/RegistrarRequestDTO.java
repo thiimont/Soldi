@@ -5,4 +5,5 @@ import jakarta.validation.constraints.NotEmpty;
 
 public record RegistrarRequestDTO(@NotEmpty(message = "O nome é obrigatório.") String nome,
                                   @Email @NotEmpty(message = "O email é obrigatório.") String email,
-                                  @NotEmpty(message = "A senha é obrigatória.") String senha) { }
+                                  @NotEmpty(message = "A senha é obrigatória.") String senha,
+                                  @NotEmpty(message = "A confirmação da senha é obrigatória.") String confirmarSenha) { }
