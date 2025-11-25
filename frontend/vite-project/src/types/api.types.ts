@@ -69,3 +69,9 @@ export interface ChatResponse {
   resposta: string;
   dataResposta: string;
 }
+
+export interface GastoMensal {
+  label: string;      // ao invés de mes
+  revenuea: number;   // ao invés de receita
+  cost: number;       // ao invés de despesa
+}
