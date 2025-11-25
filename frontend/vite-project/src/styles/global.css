@@ -88,11 +88,8 @@
 
 .btn-login{
   padding: 14px 0px;
-<<<<<<< HEAD
   background-color: #2c9b1e;
-=======
-  background-color: #7fc464;
->>>>>>> feature/home
+  /* background-color: #7fc464; */
   color: white;
   border: none;
   border-radius: 12px;
