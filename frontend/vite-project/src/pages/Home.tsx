@@ -10,7 +10,12 @@ import Button from "../components/Button/Button";
 import usuarioService from '../services/usuario.service';
 import transacaoService from '../services/transacao.service';
 import authService from '../services/auth.service';
-import type { SaldoResponse, TransacaoResumo, GastoPorCategoria } from '../types/api.types';
+import type { 
+  SaldoResponse, 
+  TransacaoResumo, 
+  GastoPorCategoria,
+  GastoMensal
+} from '../types/api.types';
 
 function Home() {
   const navigate = useNavigate();
@@ -19,6 +24,7 @@ function Home() {
   const [saldo, setSaldo] = useState<SaldoResponse | null>(null);
   const [transacoes, setTransacoes] = useState<TransacaoResumo[]>([]);
   const [gastosPorCategoria, setGastosPorCategoria] = useState<GastoPorCategoria[]>([]);
+  const [gastosMensais, setGastosMensais] = useState<GastoMensal[]>([]);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState('');
 
@@ -35,15 +41,17 @@ function Home() {
         setCarregando(true);
         
         // Buscar dados em paralelo
-        const [saldoData, transacoesData, gastosData] = await Promise.all([
+        const [saldoData, transacoesData, gastosData, gastosMensaisData] = await Promise.all([
           usuarioService.getSaldo(),
           transacaoService.listarRecentes(),
-          usuarioService.getGastosPorCategoria()
+          usuarioService.getGastosPorCategoria(),
+          usuarioService.getGastosMensais()
         ]);
 
         setSaldo(saldoData);
         setTransacoes(transacoesData);
         setGastosPorCategoria(gastosData);
+        setGastosMensais(gastosMensaisData);
       } catch (error: any) {
         console.error('Erro ao carregar dados:', error);
         setErro('Erro ao carregar dados. Tente novamente.');
@@ -119,7 +127,7 @@ function Home() {
         </div>
 
         <div id="grafico" style={{ marginTop: "30px" }}>
-          <Grafico dados={gastosPorCategoria} />
+          <Grafico dados={gastosMensais} />
         </div>
 
         <div id="grafico" style={{ marginTop: "30px" }}>

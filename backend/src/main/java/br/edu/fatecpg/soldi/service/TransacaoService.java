@@ -28,9 +28,7 @@ public class TransacaoService {
     private final TransacaoRepository transacaoRepository;
     private final UsuarioRepository usuarioRepository;
 
-    /**
-     * Retorna as últimas 5 transações de um usuário
-     */
+
     public List<TransacaoResumoDTO> getTransacoesRecentes() {
         UUID uuidUsuario = (UUID) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Transacao> transacoes = transacaoRepository

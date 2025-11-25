@@ -2,7 +2,8 @@ import api from '../config/api';
 import type { 
   SaldoResponse, 
   GastoPorCategoria, 
-  ChatResponse 
+  ChatResponse,
+  GastoMensal
 } from '../types/api.types';
 
 class UsuarioService {
@@ -12,16 +13,20 @@ class UsuarioService {
     return response.data;
   }
 
-  
   async getGastosPorCategoria(): Promise<GastoPorCategoria[]> {
     const response = await api.get<GastoPorCategoria[]>('/usuarios/me/analytics/gastos-categoria');
     return response.data;
   }
 
+  async getGastosMensais(): Promise<GastoMensal[]> {
+    const response = await api.get<GastoMensal[]>('/usuarios/me/analytics/gastos-mensais');
+    return response.data;
+  }
+
   async getAiInsight(): Promise<ChatResponse> {
-  const response = await api.get<ChatResponse>('/usuarios/me/transacoes/ai-insight');
-  return response.data;
-}
+    const response = await api.get<ChatResponse>('/usuarios/me/transacoes/ai-insight');
+    return response.data;
+  }
 }
 
 export default new UsuarioService();
