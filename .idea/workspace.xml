@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a13cc1a2-53f6-4f92-b19b-6061cbe35ea4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/service/TransacaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/service/TransacaoService.java" afterDir="false" />
-    </list>
+    <list default="true" id="a13cc1a2-53f6-4f92-b19b-6061cbe35ea4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
