@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a13cc1a2-53f6-4f92-b19b-6061cbe35ea4" name="Changes" comment="" />
+    <list default="true" id="a13cc1a2-53f6-4f92-b19b-6061cbe35ea4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/br/edu/fatecpg/soldi/service/AuthService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,38 +49,7 @@
     "project.structure.side.proportion": "0.0"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.SoldiApplication (2)">
-    <configuration name="SoldiApplication (2)" type="Application" factoryName="Application" nameIsGenerated="true">
-      <envs>
-        <env name="DB_URL" value="jdbc:postgresql://localhost:5433/db_soldi" />
-        <env name="DB_USERNAME" value="postgres" />
-        <env name="DB_PASSWORD" value="postgres" />
-        <env name="OPENAPI_SECRET_API_KEY" value="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" />
-        <env name="JWT_TOKEN_SECRET" value="kJ9!mXp2@nL7vR4$wQ8zT6hN3bF5gY1c" />
-        <env name="REACT_BASE_URL" value="http://localhost" />
-      </envs>
-      <option name="MAIN_CLASS_NAME" value="br.edu.fatecpg.soldi.SoldiApplication" />
-      <module name="soldi" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="br.edu.fatecpg.soldi.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <extension name="net.ashald.envfile">
-        <option name="IS_ENABLED" value="false" />
-        <option name="IS_SUBST" value="false" />
-        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
-        <option name="IS_IGNORE_MISSING_FILES" value="false" />
-        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
-        <ENTRIES>
-          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
-        </ENTRIES>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="SoldiApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <envs>
         <env name="DB_URL" value="jdbc:postgresql://localhost:5433/db_soldi" />
@@ -109,8 +80,53 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SoldiApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="DB_URL" value="jdbc:postgresql://localhost:5433/db_soldi" />
+        <env name="DB_USERNAME" value="postgres" />
+        <env name="DB_PASSWORD" value="postgres" />
+        <env name="OPENAPI_SECRET_API_KEY" value="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" />
+        <env name="MAIL_USERNAME" value="frankoliveiradev@gmail.com" />
+        <env name="MAIL_PASSWORD" value="y@smin1706" />
+        <env name="JWT_TOKEN_SECRET" value="kJ9!mXp2@nL7vR4$wQ8zT6hN3bF5gY1c" />
+        <env name="REACT_BASE_URL" value="http://localhost" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="br.edu.fatecpg.soldi.SoldiApplication" />
+      <module name="soldi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.edu.fatecpg.soldi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="soldi" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="soldi" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SoldiApplication" />
         <item itemvalue="Application.SoldiApplication" />
       </list>
     </recent_temporary>
