@@ -43,7 +43,7 @@ public class AuthService {
         novoUsuario.setNome(request.nome());
 
         usuarioRepository.save(novoUsuario);
-        emailService.enviarEmail(new EmailDetails(request.email(), "Bem-vindo(a) ao Soldi, " + request.nome() + "! \uD83D\uDCCA\n\nAproveite o nosso sistema de gerenciamento de finanças pessoais.\n\nAtenciosamente,\nEquipe Soldi", "Soldi - cadastro realizado com sucesso!"));
+//        emailService.enviarEmail(new EmailDetails(request.email(), "Bem-vindo(a) ao Soldi, " + request.nome() + "! \uD83D\uDCCA\n\nAproveite o nosso sistema de gerenciamento de finanças pessoais.\n\nAtenciosamente,\nEquipe Soldi", "Soldi - cadastro realizado com sucesso!"));
         return new RegistrarResponseDTO(novoUsuario.getNome(), novoUsuario.getEmail());
     }
 }

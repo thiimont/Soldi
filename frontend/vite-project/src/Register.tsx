@@ -12,6 +12,7 @@ import { Label } from './components/label.tsx'
 import { Button } from './components/button.tsx'
 import Logo from './assets/logoSoldi.png'; 
 import authService from './services/auth.service';
+import type { RegistrarRequest } from './types/api.types';
 
 function Register() {
   const navigate = useNavigate();
@@ -42,7 +43,15 @@ function Register() {
     setCarregando(true);
 
     try {
-      await authService.registrar({ nome, email, senha });
+      // ATUALIZADO: Enviar COM confirmarSenha
+      const payload: RegistrarRequest = {
+        nome: nome,
+        email: email,
+        senha: senha,
+        confirmarSenha: confirmarSenha  // ADICIONADO
+      };
+      
+      await authService.registrar(payload);
       setSucesso(true);
       alert('Cadastro realizado com sucesso! Faça login agora.');
       

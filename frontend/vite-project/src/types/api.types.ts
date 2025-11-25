@@ -16,6 +16,7 @@ export interface RegistrarRequest {
   nome: string;
   email: string;
   senha: string;
+  confirmarSenha: string;  
 }
 
 export interface CriarTransacaoRequest {
