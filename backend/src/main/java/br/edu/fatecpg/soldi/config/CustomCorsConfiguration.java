@@ -11,14 +11,14 @@ import java.util.List;
 @Component
 public class CustomCorsConfiguration implements CorsConfigurationSource {
     @Value("${br.edu.fatecpg.soldi.react-base-url}")
-    String reactUrl;
+    private String reactUrl;
 
     @Override
     public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
         config.setAllowedOrigins(List.of((reactUrl + ":3000"), (reactUrl + ":5173")));
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
 
         return config;
