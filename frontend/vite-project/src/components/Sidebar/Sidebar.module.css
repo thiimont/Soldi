@@ -1,3 +1,4 @@
+/* Botão Hamburguer - SEMPRE visível */
 .hamburger {
   position: fixed;
   top: 10px;
@@ -5,69 +6,109 @@
   background: #99cd85;
   color: white;
   border: none;
-  padding: 8px;
-  font-size: 1.2rem;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1.5rem;
   cursor: pointer;
-  z-index: 1001; 
-  display: block; 
+  z-index: 1001;
+  display: block; /* SEMPRE visível */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
+
+/* Sidebar - SEMPRE escondida por padrão */
 .nav {
   position: fixed;
   top: 0;
-  left:0;
+  left: 0;
   width: 250px;
-  height:100vh;
+  height: 100vh;
   background: #99CD85;
-  padding: 20px;
-  overflow-y: auto; 
+  padding: 70px 20px 20px 20px; /* PADDING TOP 70px para não sobrepor */
+  overflow-y: auto;
   z-index: 1000;
+  transform: translateX(-100%); /* Escondida por padrão */
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
 }
-.nav:not(.open) {
-  transform: translateX(-100%); 
-}
+
+/* Sidebar aberta (quando clicar no hamburguer) */
 .nav.open {
-  transform: translateX(0);
+  transform: translateX(0); /* Mostra a sidebar */
 }
+
 .title {
-  font-size: 1.2rem; 
+  font-size: 1.2rem;
   font-weight: 600;
   color: white;
-  margin: 0;
+  margin: 0 0 20px 0;
 }
+
 .links {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   gap: 10px;
   width: 100%;
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
+
 .link {
-  display: flex;      
-  align-items: center;   
-  gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   text-decoration: none;
   color: #fff;
   font-size: 16px;
-  padding: 8px 0;
+  padding: 12px 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
 }
+
 .link:hover {
-  color: #64c27b;
-  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  transform: translateX(5px);
 }
+
 .links li {
-  margin: 4px 0;
+  margin: 0;
 }
-/* mobile */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block; 
-  }
 
+/* Overlay escuro quando sidebar aberta */
+.nav.open::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 250px;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+/* Mobile pequeno - Sidebar mais estreita */
+@media (max-width: 480px) {
   .nav {
-    width: 160px;  
+    width: 200px;
+    padding: 60px 15px 15px 15px; /* Padding top menor */
   }
 
-  .nav.open {
-    transform: translateX(0); 
+  .nav.open::after {
+    left: 200px;
+  }
+
+  .hamburger {
+    padding: 10px;
+    font-size: 1.3rem;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .link {
+    font-size: 14px;
+    padding: 10px 6px;
   }
 }

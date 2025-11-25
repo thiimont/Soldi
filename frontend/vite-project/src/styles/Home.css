@@ -4,38 +4,89 @@ html, body, #root {
   height: 100%;
   width: 100%;
 }
+
 .App {
-  background-color: #ffffff;
+  background-color: #f5f5f5; /* Fundo levemente cinza */
   min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: row;
 }
+
 main {
   width: 100%;
-  max-width: 1070px;
-  padding: 20px;
+  max-width: 1400px;
+  padding: 40px 60px; /* Mais padding lateral */
   margin: 0 auto; 
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 30px; /* Espaçamento entre seções */
 }
+
 .cards {
   display: flex;
   flex-direction: row;
   gap: 20px;
   padding-top: 20px;
-  flex-wrap: wrap;
-  justify-content: center; 
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 1300px; /* Limita a largura */
 }
+
 #grafico, #transacao {
   width: 100%;
+  max-width: 1300px; /* Limita a largura dos gráficos */
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
 }
-@media (max-width: 480px) {
+
+/* Tablet */
+@media (max-width: 1024px) {
+  main {
+    padding: 30px 40px;
+  }
+
   .cards {
-    flex-direction: row-reverse;
-    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .App {
+    flex-direction: column;
+    background-color: #ffffff;
+  }
+
+  main {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .cards {
+    flex-wrap: wrap;
+    gap: 15px;
+    max-width: 100%;
+  }
+
+  #grafico, #transacao {
+    max-width: 100%;
+  }
+
+  #grafico {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 15px 10px;
+  }
+
+  .cards {
+    gap: 10px;
   }
 }
