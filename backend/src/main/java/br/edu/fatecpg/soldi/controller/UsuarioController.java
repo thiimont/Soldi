@@ -1,9 +1,6 @@
 package br.edu.fatecpg.soldi.controller;
 
-import br.edu.fatecpg.soldi.dto.response.ChatResponseDTO;
-import br.edu.fatecpg.soldi.dto.response.GastoPorCategoriaDTO;
-import br.edu.fatecpg.soldi.dto.response.SaldoResponseDTO;
-import br.edu.fatecpg.soldi.dto.response.TransacaoResumoDTO;
+import br.edu.fatecpg.soldi.dto.response.*;
 import br.edu.fatecpg.soldi.service.ChatService;
 import br.edu.fatecpg.soldi.service.TransacaoService;
 import br.edu.fatecpg.soldi.service.UsuarioService;
@@ -59,5 +56,12 @@ public class UsuarioController {
     public ResponseEntity<List<GastoPorCategoriaDTO>> getGastosPorCategoria() {
         List<GastoPorCategoriaDTO> gastos = transacaoService.getGastosPorCategoria();
         return ResponseEntity.ok(gastos);
+    }
+
+    @GetMapping("/me/analytics/gastos-mensais")
+    @SecurityRequirement(name = "bearerAuth")
+    public ResponseEntity<List<GastoMensalDTO>> getGastosMensais() {
+        List<GastoMensalDTO> gastoMensal = transacaoService.getGastosMensais();
+        return ResponseEntity.ok(gastoMensal);
     }
 }
