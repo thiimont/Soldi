@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './Sidebar.module.css';
 import authService from '../../services/auth.service';
 
@@ -77,6 +77,13 @@ export const Nav: React.FC = () => {
                 <img src="/src/assets/logout.png" alt="Ícone de Logout"/>
                 Logout
               </button>
+            </li>
+
+            <li>
+              <Link to="/transacoes" className={styles.link}>
+                <img src="/src/assets/transacoes.png" alt="Ícone das Transações"/>
+                Transações
+              </Link>
             </li>
           </ul>
         </div>
