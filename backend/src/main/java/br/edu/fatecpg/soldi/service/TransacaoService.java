@@ -2,6 +2,7 @@ package br.edu.fatecpg.soldi.service;
 
 import br.edu.fatecpg.soldi.dto.request.AtualizarTransacaoDTO;
 import br.edu.fatecpg.soldi.dto.request.CriarTransacaoDTO;
+import br.edu.fatecpg.soldi.dto.response.GastoMensalDTO;
 import br.edu.fatecpg.soldi.dto.response.GastoPorCategoriaDTO;
 import br.edu.fatecpg.soldi.dto.response.TransacaoResumoDTO;
 import br.edu.fatecpg.soldi.exception.ResourceNotFoundException;
@@ -82,6 +83,57 @@ public class TransacaoService {
                 .collect(Collectors.toList());
     }
 
+    public List<GastoMensalDTO> getGastosMensais() {
+        UUID uuidUsuario = (UUID) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        List<Transacao> transacoes = transacaoRepository.findAllByUsuarioUuid(uuidUsuario);
+
+        Map<Integer, List<Transacao>> agrupadoPorMes =
+                transacoes.stream()
+                        .collect(Collectors.groupingBy(
+                                t -> t.getDataTransacao().getMonthValue()
+                        ));
+
+        Map<Integer, String> nomesMes = Map.ofEntries(
+                Map.entry(1, "Janeiro"),
+                Map.entry(2, "Fevereiro"),
+                Map.entry(3, "Março"),
+                Map.entry(4, "Abril"),
+                Map.entry(5, "Maio"),
+                Map.entry(6, "Junho"),
+                Map.entry(7, "Julho"),
+                Map.entry(8, "Agosto"),
+                Map.entry(9, "Setembro"),
+                Map.entry(10, "Outubro"),
+                Map.entry(11, "Novembro"),
+                Map.entry(12, "Dezembro")
+        );
+
+        List<GastoMensalDTO> resultado = new ArrayList<>();
+
+        for (int mes = 1; mes <= 12; mes++) {
+            List<Transacao> lista = agrupadoPorMes.getOrDefault(mes, List.of());
+
+            BigDecimal receita = lista.stream()
+                    .filter(t -> t.getTipo() == TipoTransacao.RECEITA)
+                    .map(Transacao::getValor)
+                    .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+            BigDecimal despesa = lista.stream()
+                    .filter(t -> t.getTipo() == TipoTransacao.DESPESA)
+                    .map(Transacao::getValor)
+                    .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+            resultado.add(
+                    new GastoMensalDTO(
+                            nomesMes.get(mes),
+                            receita,
+                            despesa
+                    )
+            );
+        }
+
+        return resultado;
+    }
 
     private TransacaoResumoDTO converterParaResumoDTO(Transacao transacao) {
         return new TransacaoResumoDTO(
