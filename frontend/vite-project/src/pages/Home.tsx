@@ -10,6 +10,7 @@ import Button from "../components/Button/Button";
 import usuarioService from '../services/usuario.service';
 import transacaoService from '../services/transacao.service';
 import authService from '../services/auth.service';
+import AddTransactionButton from "../components/AddTransactionButton/AddTransactionButton";
 import type { 
   SaldoResponse, 
   TransacaoResumo, 
@@ -139,7 +140,7 @@ function Home() {
         </div>
 
         <Button /> 
-
+        <AddTransactionButton />
       </main>
     </div>
   );
