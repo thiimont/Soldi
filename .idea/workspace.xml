@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a13cc1a2-53f6-4f92-b19b-6061cbe35ea4" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Frank1br&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/thiimont/Soldi.git&quot;,
+    &quot;accountId&quot;: &quot;c9bc4e6b-13ea-4283-b512-d0b43946c195&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="35rpdDRXPQMEtbL86TaM5cDskoW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.SoldiApplication (2).executor&quot;: &quot;Run&quot;,
+    &quot;Application.SoldiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/frankoliveira/Desktop/Projetos Pessoais/Soldi&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="SoldiApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="DB_URL" value="jdbc:postgresql://localhost:5433/db_soldi" />
+        <env name="DB_USERNAME" value="postgres" />
+        <env name="DB_PASSWORD" value="postgres" />
+        <env name="OPENAPI_SECRET_API_KEY" value="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" />
+        <env name="JWT_TOKEN_SECRET" value="kJ9!mXp2@nL7vR4$wQ8zT6hN3bF5gY1c" />
+        <env name="REACT_BASE_URL" value="http://localhost" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="br.edu.fatecpg.soldi.SoldiApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.edu.fatecpg.soldi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SoldiApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="DB_URL" value="jdbc:postgresql://localhost:5433/db_soldi" />
+        <env name="DB_USERNAME" value="postgres" />
+        <env name="DB_PASSWORD" value="postgres" />
+        <env name="OPENAPI_SECRET_API_KEY" value="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" />
+        <env name="MAIL_USERNAME" value="frankoliveiradev@gmail.com" />
+        <env name="MAIL_PASSWORD" value="y@smin1706" />
+        <env name="JWT_TOKEN_SECRET" value="kJ9!mXp2@nL7vR4$wQ8zT6hN3bF5gY1c" />
+        <env name="REACT_BASE_URL" value="http://localhost" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="br.edu.fatecpg.soldi.SoldiApplication" />
+      <module name="soldi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.edu.fatecpg.soldi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="soldi" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="soldi" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SoldiApplication" />
+        <item itemvalue="Application.SoldiApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a13cc1a2-53f6-4f92-b19b-6061cbe35ea4" name="Changes" comment="" />
+      <created>1763878129954</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1763878129954</updated>
+    </task>
+    <servers />
+  </component>
+</project>
