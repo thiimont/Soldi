@@ -707,29 +707,29 @@ Para documentação completa da integração, consulte o PDF: `Documentacao_Inte
 <table align="center">
   <tr>
     <td align="center">
-      <a href="https://github.com/amanda-lima">
-        <img src="https://github.com/amanda-lima.png" width="100px;" alt="Amanda Lima"/><br>
+      <a href="https://github.com/MandyLima">
+        <img src="https://github.com/MandyLima.png" width="100px;" alt="Amanda Lima"/><br>
         <sub><b>Amanda Lima</b></sub>
       </a><br>
-      <sub>Frontend Developer</sub>
+      <sub>Fullstack Developer</sub>
     </td>
     <td align="center">
-      <a href="https://github.com/frank-oliveira">
-        <img src="https://github.com/frank-oliveira.png" width="100px;" alt="Frank Oliveira"/><br>
+      <a href="https://github.com/Frank1br">
+        <img src="https://github.com/Frank1br.png" width="100px;" alt="Frank Oliveira"/><br>
         <sub><b>Frank Oliveira</b></sub>
       </a><br>
-      <sub>Backend Developer</sub>
+      <sub>FullStack Developer</sub>
     </td>
     <td align="center">
-      <a href="https://github.com/isabela-marchesoni">
-        <img src="https://github.com/isabela-marchesoni.png" width="100px;" alt="Isabela Marchesoni"/><br>
+      <a href="https://github.com/isabelamarchesoni">
+        <img src="https://github.com/isabelamarchesoni.png" width="100px;" alt="Isabela Marchesoni"/><br>
         <sub><b>Isabela Marchesoni</b></sub>
       </a><br>
       <sub>Fullstack Developer</sub>
     </td>
     <td align="center">
-      <a href="https://github.com/thiago-monteiro">
-        <img src="https://github.com/thiago-monteiro.png" width="100px;" alt="Thiago Monteiro"/><br>
+      <a href="https://github.com/thiimont">
+        <img src="https://github.com/thiimont.png" width="100px;" alt="Thiago Monteiro"/><br>
         <sub><b>Thiago Monteiro</b></sub>
       </a><br>
       <sub>Fullstack Developer</sub>
