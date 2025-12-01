@@ -8,7 +8,7 @@
   <img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white" />
 </div>
 
-<br />
+<br>
 
 <div align="center">
   <h3>📊 Organize suas finanças de forma inteligente</h3>
@@ -218,58 +218,91 @@ CREATE USER soldi_user WITH PASSWORD 'sua_senha_segura';
 GRANT ALL PRIVILEGES ON DATABASE soldi_db TO soldi_user;
 ```
 
-#### Configurar `application.properties`
+## ⚙️ Configurar `application.properties`
 
-Navegue até `backend/src/main/resources/application.properties`:
+O backend utiliza **variáveis de ambiente**, permitindo configurar o ambiente de desenvolvimento e produção com mais segurança.
+
+Edite o arquivo:
+
+`backend/src/main/resources/application.properties`
 
 ```properties
-# Porta do servidor
-server.port=8080
+spring.application.name=Soldi
 
-# Configuração do Banco de Dados
-spring.datasource.url=jdbc:postgresql://localhost:5432/soldi_db
-spring.datasource.username=soldi_user
-spring.datasource.password=sua_senha_segura
+# Banco de Dados
+spring.datasource.url=${DB_URL}
+spring.datasource.username=${DB_USERNAME}
+spring.datasource.password=${DB_PASSWORD}
 spring.datasource.driver-class-name=org.postgresql.Driver
 
-# JPA/Hibernate
+# JPA / Hibernate
 spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
-spring.jpa.properties.hibernate.format_sql=true
+hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 
-# JWT Secret (TROCAR EM PRODUÇÃO!)
-jwt.secret=SUA_CHAVE_SECRETA_SUPER_SEGURA_AQUI_MIN_256_BITS
-jwt.expiration=86400000
+# OpenAI
+spring.ai.openai.api-key=${OPENAPI_SECRET_API_KEY}
 
-# OpenAI API
-openai.api.key=sua-chave-openai-aqui
-openai.api.model=gpt-4
+# Email (SMTP Gmail)
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=${MAIL_USERNAME}
+spring.mail.password=${MAIL_PASSWORD}
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
 
-# Swagger/OpenAPI
-springdoc.api-docs.path=/api-docs
-springdoc.swagger-ui.path=/swagger-ui.html
+# JWT
+br.edu.fatecpg.soldi.jwt-token-secret=${JWT_TOKEN_SECRET}
+
+# Base URL do React (CORS)
+br.edu.fatecpg.soldi.react-base-url=${REACT_BASE_URL}
 ```
 
-#### Instalar Dependências e Compilar
+---
+
+## 📄 Criar o arquivo `.env`
+
+Crie **na raiz do projeto** um arquivo `.env` com:
+
+```env
+DB_URL=jdbc:postgresql://localhost:5433/db_soldi
+DB_USERNAME=postgres
+DB_PASSWORD=postgres
+
+OPENAPI_SECRET_API_KEY=sua_chave_api
+
+MAIL_USERNAME=seu_email
+MAIL_PASSWORD=sua_senha_de_app_do_gmail
+
+JWT_TOKEN_SECRET=kJ9!mXp2@nL7vR4$wQ8zT6hN3bF5gY1c
+
+REACT_BASE_URL=http://localhost
+```
+
+---
+
+## 🛠️ Instalar Dependências e Compilar o Backend
 
 ```bash
 cd backend
 mvn clean install
 ```
 
-### 3️⃣ Configurar Frontend
+---
 
-#### Instalar Dependências
+# 3️⃣ Configurar o Frontend
+
+## Instalar Dependências
 
 ```bash
 cd frontend
 npm install
 ```
 
-#### Configurar URL da API
+## Configurar URL da API
 
-Edite `frontend/src/config/api.ts`:
+Edite:
+
+`frontend/src/config/api.ts`
 
 ```typescript
 const API_URL = 'http://127.0.0.1:8080/api/v1';
@@ -277,19 +310,20 @@ const API_URL = 'http://127.0.0.1:8080/api/v1';
 
 ---
 
-## 🔐 Variáveis de Ambiente
+# 🔐 Variáveis de Ambiente (Resumo)
 
-### Backend (`application.properties`)
+### Backend (`.env` → `application.properties`)
 
-| Variável | Descrição | Exemplo | Obrigatório |
-|----------|-----------|---------|-------------|
-| `spring.datasource.url` | URL do PostgreSQL | `jdbc:postgresql://localhost:5432/soldi_db` | ✅ |
-| `spring.datasource.username` | Usuário do banco | `soldi_user` | ✅ |
-| `spring.datasource.password` | Senha do banco | `senha123` | ✅ |
-| `jwt.secret` | Chave secreta JWT | `minimo256bits...` | ✅ |
-| `jwt.expiration` | Tempo expiração (ms) | `86400000` (24h) | ✅ |
-| `openai.api.key` | Chave da OpenAI | `sk-...` | ✅ |
-| `openai.api.model` | Modelo da OpenAI | `gpt-4` ou `gpt-3.5-turbo` | ✅ |
+| Variável                 | Usada em                     | Descrição                  | Exemplo                                     | Obrigatório          |
+| ------------------------ | ---------------------------- | -------------------------- | ------------------------------------------- | -------------------- |
+| `DB_URL`                 | `spring.datasource.url`      | URL do PostgreSQL          | `jdbc:postgresql://localhost:5433/db_soldi` | ✅                   |
+| `DB_USERNAME`            | `spring.datasource.username` | Usuário do banco           | `postgres`                                  | ✅                   |
+| `DB_PASSWORD`            | `spring.datasource.password` | Senha do banco             | `postgres`                                  | ✅                   |
+| `OPENAPI_SECRET_API_KEY` | `spring.ai.openai.api-key`   | Chave da OpenAI            | `sk-...`                                    | ✅                   |
+| `MAIL_USERNAME`          | SMTP                         | Email remetente            | `email@gmail.com`                           | ✅                   |
+| `MAIL_PASSWORD`          | SMTP                         | Senha de app Gmail         | `xxxx xxxx xxxx xxxx`                       | ✅                   |
+| `JWT_TOKEN_SECRET`       | `jwt-token-secret`           | Chave JWT (256 bits)       | `kJ9!mXp2@n...`                             | ✅                   |
+| `REACT_BASE_URL`         | `react-base-url`             | URL do frontend para CORS  | `http://localhost`                          | ⚠️                   |
 
 ### Frontend (`api.ts`)
 
@@ -365,7 +399,7 @@ O projeto **Soldi** utiliza a metodologia **Git Flow** para organizar o desenvol
 
 ### Fluxo de Trabalho
 
-#### 1. Criar Nova Feature
+#### Passo 1: Criando uma Feature
 
 ```bash
 # Atualizar develop
@@ -380,116 +414,7 @@ git add .
 git commit -m "feat: adiciona tela de login"
 ```
 
-#### 2. Finalizar Feature
-
-```bash
-# Atualizar develop
-git checkout develop
-git pull origin develop
-
-# Merge da feature
-git merge feature/nome-da-funcionalidade
-
-# Enviar para repositório
-git push origin develop
-
-# Deletar branch local
-git branch -d feature/nome-da-funcionalidade
-```
-
-#### 3. Criar Release
-
-```bash
-# Criar release a partir de develop
-git checkout develop
-git checkout -b release/v1.0.0
-
-# Merge para main (produção)
-git checkout main
-git merge release/v1.0.0
-git tag -a v1.0.0 -m "Versão 1.0.0"
-
-# Merge para develop (atualização)
-git checkout develop
-git merge release/v1.0.0
-
-# Enviar tudo
-=======
-
-
-# 📋 Guia de Versionamento do Projeto - Git Flow (Soldi)
-
-## 🎯 Objetivo
-
-Este documento explica como vamos organizar nosso repositório usando **Git Flow**, uma metodologia que nos ajudará a trabalhar de forma organizada, evitar conflitos e manter o código sempre estável em produção.
-
----
-
-## 🌳 Estrutura de Branches
-
-Nosso projeto terá dois tipos de branches: **permanentes** e **temporárias**.
-
-### Branches Permanentes (nunca são deletadas)
-
-#### 1️⃣ `main`
-- **O que é**: Código em produção
-- **Regra de ouro**: SEMPRE estável e funcionando
-- **Quem mexe**: Apenas através de merges de `release` branches
-- **Deploy**: Todo código aqui vai para o ambiente de produção
-
-#### 2️⃣ `develop`
-- **O que é**: Branch de integração do desenvolvimento
-- **Propósito**: Juntar todas as features que estamos desenvolvendo
-- **Regra**: Não trabalhamos diretamente aqui, apenas fazemos merge de features prontas
-- **Estado**: Pode ter bugs, é nosso "laboratório"
-
-### Branches Temporárias (são deletadas após o uso)
-
-#### 🚀 `feature/*`
-- **O que é**: Uma branch para cada funcionalidade nova
-- **Exemplos**: 
-  - `feature/login-usuario`
-  - `feature/cadastro-produtos`
-  - `feature/dashboard-vendas`
-- **Onde nasce**: Criada a partir de `develop`
-- **Onde morre**: Merge de volta para `develop` e depois é deletada
-- **Importante**: Cada feature deve ser completa (back-end + front-end juntos)
-
-#### 🎁 `release/*`
-- **O que é**: Preparação de uma nova versão para produção
-- **Exemplos**: `release/v1.0.0`, `release/v2.1.0`
-- **Onde nasce**: Criada a partir de `develop` quando temos features suficientes
-- **Propósito**: Testes finais, correções de bugs pequenos, ajustes de última hora
-- **Onde morre**: Merge para `main` (produção) e `develop` (atualização)
-
-#### 🔥 `hotfix/*`
-- **O que é**: Correção urgente de bug em produção
-- **Exemplos**: `hotfix/corrigir-erro-pagamento`
-- **Onde nasce**: Criada a partir de `main`
-- **Onde morre**: Merge para `main` E `develop`
-- **Quando usar**: Apenas para bugs críticos que não podem esperar
-
----
-
-## 🔄 Fluxo de Trabalho Completo
-
-### Passo 1: Começando uma nova feature
-
-```bash
-# 1. Vá para develop e atualize
-git checkout develop
-git pull origin develop
-
-# 2. Crie sua branch de feature
-git checkout -b feature/nome-da-funcionalidade
-
-# 3. Desenvolva sua funcionalidade
-# (faça commits normalmente)
-git add .
-git commit -m "Adiciona tela de login"
-```
-
-### Passo 2: Finalizando a feature
+#### Passo 2: Finalizando a Feature
 
 ```bash
 # 1. Atualize develop novamente (pode ter mudanças)
@@ -511,7 +436,7 @@ git push origin develop
 git branch -d feature/nome-da-funcionalidade
 ```
 
-### Passo 3: Criando uma Release (quando temos várias features prontas)
+#### Passo 3: Criando uma Release (quando temos várias features prontas)
 
 ```bash
 # 1. A partir de develop, crie a release
@@ -851,7 +776,7 @@ Para documentação completa da integração, consulte o PDF: `Documentacao_Inte
         <img src="https://github.com/thiimont.png" width="100px;" alt="Thiago Monteiro"/><br>
         <sub><b>Thiago Monteiro</b></sub>
       </a><br>
-      <sub>Fullstack Developer</sub>
+      <sub>Backend Developer</sub>
     </td>
   </tr>
 </table>
@@ -908,8 +833,7 @@ Este projeto foi desenvolvido para fins educacionais como parte do curso de **An
 Para dúvidas, sugestões ou reportar problemas:
 
 - 📧 **Email:** soldi.fatecpg@gmail.com
-- 🐛 **Issues:** [GitHub Issues](https://github.com/seu-usuario/soldi/issues)
-- 📚 **Wiki:** [GitHub Wiki](https://github.com/seu-usuario/soldi/wiki)
+- 🐛 **Issues:** [GitHub Issues](https://github.com/thiimont/Soldi/issues)
 
 ---
 
