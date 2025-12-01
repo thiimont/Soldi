@@ -1,0 +1,70 @@
+.chartContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;     
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px; /* Mais espaço entre gráficos */
+  margin-bottom: 20px;
+}
+
+.dataCard.bar,
+.dataCard.donut {
+  width: 50%;
+  max-width: 600px;
+}
+
+.dataCard.bar {
+  height: 350px; 
+  display: flex;
+  flex-direction: column;
+  padding: 30px; /* Mais padding */
+  margin: 0;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.dataCard.donut {
+  height: 350px; 
+  display: flex;
+  flex-direction: column;
+  padding: 30px; /* Mais padding */
+  margin: 0;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  align-items: center; 
+  justify-content: center; 
+}
+
+.dataCard h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.3rem;
+  color: #333;
+  text-align: center;
+}
+
+/* Tablet e Mobile */
+@media (max-width: 768px) {
+  .chartContainer {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .dataCard.bar,
+  .dataCard.donut {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    padding: 20px;
+  }
+
+  .dataCard h3 {
+    font-size: 1.1rem;
+  }
+}

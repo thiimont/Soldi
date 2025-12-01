@@ -1,0 +1,247 @@
+.transacoes-main {
+  width: 100%;
+  max-width: 1400px;
+  padding: 40px 60px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+.transacoes-header {
+  margin-bottom: 32px;
+}
+
+.transacoes-header h1 {
+  margin: 0 0 8px 0;
+  font-size: 2rem;
+  color: #2d3748;
+  font-weight: 700;
+}
+
+.transacoes-count {
+  margin: 0;
+  color: #718096;
+  font-size: 1rem;
+}
+
+.loading-container,
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 16px;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  gap: 16px;
+  padding: 40px;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  opacity: 0.5;
+}
+
+.empty-state h2 {
+  margin: 0;
+  color: #4a5568;
+  font-size: 1.5rem;
+}
+
+.empty-state p {
+  margin: 0;
+  color: #718096;
+  max-width: 400px;
+}
+
+.transacoes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  padding-bottom: 100px;
+}
+
+.transacao-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  border-left: 4px solid;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.transacao-card.receita {
+  border-left-color: #00b96b;
+}
+
+.transacao-card.despesa {
+  border-left-color: #ff4d4f;
+}
+
+.transacao-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.transacao-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.tipo-badge {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tipo-badge.receita {
+  background: #e6f9f0;
+  color: #00b96b;
+}
+
+.tipo-badge.despesa {
+  background: #fff5f5;
+  color: #ff4d4f;
+}
+
+.transacao-data {
+  font-size: 0.85rem;
+  color: #718096;
+  font-weight: 500;
+}
+
+.transacao-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.transacao-descricao {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #2d3748;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.transacao-categoria {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #718096;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.transacao-valor {
+  margin: 8px 0 0 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.transacao-valor.receita {
+  color: #00b96b;
+}
+
+.transacao-valor.despesa {
+  color: #ff4d4f;
+}
+
+.transacao-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.btn-edit,
+.btn-delete {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-edit {
+  background: #f0f7ed;
+  color: #99CD85;
+}
+
+.btn-edit:hover {
+  background: #99CD85;
+  color: white;
+}
+
+.btn-delete {
+  background: #fff5f5;
+  color: #ff4d4f;
+}
+
+.btn-delete:hover {
+  background: #ff4d4f;
+  color: white;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .transacoes-main {
+    padding: 30px 40px;
+  }
+
+  .transacoes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .transacoes-main {
+    padding: 20px;
+  }
+
+  .transacoes-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .transacoes-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .transacao-card {
+    padding: 16px;
+  }
+
+  .transacao-descricao {
+    font-size: 1rem;
+  }
+
+  .transacao-valor {
+    font-size: 1.3rem;
+  }
+}

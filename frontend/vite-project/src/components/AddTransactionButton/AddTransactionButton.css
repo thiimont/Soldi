@@ -1,0 +1,47 @@
+.add-transaction-btn {
+  position: fixed;
+  bottom: 100px; /* Acima do botão da IA */
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #99CD85 0%, #7fb86d 100%);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(153, 205, 133, 0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.add-transaction-btn:hover {
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: 0 6px 25px rgba(153, 205, 133, 0.6);
+}
+
+.add-transaction-btn:active {
+  transform: scale(0.95);
+}
+
+.plus-icon {
+  font-size: 2rem;
+  color: white;
+  font-weight: 300;
+  line-height: 1;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .add-transaction-btn {
+    bottom: 90px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .plus-icon {
+    font-size: 1.8rem;
+  }
+}
