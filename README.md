@@ -784,9 +784,9 @@ Para documentação completa da integração, consulte o PDF: `Documentacao_Inte
 ### 🏫 Instituição
 
 **FATEC Praia Grande - Faculdade de Tecnologia de Praia Grande**  
-Curso: Análise e Desenvolvimento de Sistemas  
-Disciplina: Desenvolvimento Web e Mobile  
-Período: 2025
+Curso: Desenvolvimento de Software Multiplataforma  
+Disciplina: Técnicas de Programação II
+Período: 2025.2
 
 ---
 
@@ -824,7 +824,7 @@ Para mais detalhes sobre versionamento, consulte a seção [Versionamento e Git 
 
 ## 📄 Licença
 
-Este projeto foi desenvolvido para fins educacionais como parte do curso de **Análise e Desenvolvimento de Sistemas** da **FATEC Praia Grande**.
+Este projeto foi desenvolvido para fins educacionais como parte do curso de **Desenvolvimento de Software Multiplataforma** da **FATEC Praia Grande**.
 
 ---
 
@@ -832,7 +832,6 @@ Este projeto foi desenvolvido para fins educacionais como parte do curso de **An
 
 Para dúvidas, sugestões ou reportar problemas:
 
-- 📧 **Email:** soldi.fatecpg@gmail.com
 - 🐛 **Issues:** [GitHub Issues](https://github.com/thiimont/Soldi/issues)
 
 ---
