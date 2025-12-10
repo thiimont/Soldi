@@ -13,6 +13,11 @@
 <div align="center">
   <h3>📊 Organize suas finanças de forma inteligente</h3>
   <p>Sistema completo de gestão financeira com dashboard interativo, análise por IA e controle total de receitas e despesas.</p>
+
+  <img src="https://github.com/thiimont/Soldi/blob/main/imagens/1764778317285.jpeg" width="500px" alt="Tela inicial do Soldi" />
+  <img src="https://github.com/thiimont/Soldi/blob/main/imagens/1764778317598.jpeg" width="500px" alt="Tela inicial do Soldi" />
+  <img src="https://github.com/thiimont/Soldi/blob/main/imagens/1764778317139.jpeg" width="500px" alt="Tela de login do Soldi" />
+  <img src="https://github.com/thiimont/Soldi/blob/main/imagens/1764778317401.jpeg" width="500px" alt="Dashboard de finanças do Soldi" />
 </div>
 
 ---
