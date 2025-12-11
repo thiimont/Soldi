@@ -34,8 +34,8 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.UNAUTHORIZED);
     }
 
-    @ExceptionHandler(DataValidationException.class)
-    public ResponseEntity<Map<String, Object>> handleDataValidationException(DataValidationException ex) {
+    @ExceptionHandler(PasswordConfirmationException.class)
+    public ResponseEntity<Map<String, Object>> handlePasswordConfirmationException(PasswordConfirmationException ex) {
         Map<String, Object> errorResponse = new HashMap<>();
         errorResponse.put("timestamp", LocalDateTime.now());
         errorResponse.put("status", HttpStatus.UNPROCESSABLE_ENTITY.value());
