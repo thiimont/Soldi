@@ -1,33 +1,44 @@
 package br.edu.fatecpg.soldi.service;
 
+import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.Context;
+
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
 public class EmailService {
     private final JavaMailSender javaMailSender;
+    private final TemplateEngine templateEngine;
 
     @Value("${spring.mail.username}")
     private String remetente;
 
-    public void enviarEmail(EmailDetails email) {
+    public String build(String templateName, Map<String, Object> templateVariables) {
+        Context context = new Context();
+        context.setVariables(templateVariables);
+        return templateEngine.process(templateName, context);
+    }
+
+    public void enviarEmail(EmailDetails email, String templateName) {
         try {
-            SimpleMailMessage mailMessage = new SimpleMailMessage();
+            MimeMessage message = javaMailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
+            helper.setFrom(remetente);
+            helper.setTo(email.destinatario());
+            helper.setSubject(email.assunto());
 
-            mailMessage.setFrom(remetente);
-            mailMessage.setTo(email.destinatario());
-            mailMessage.setText(email.corpoMensagem());
-            mailMessage.setSubject(email.assunto());
+            String html = build(templateName, email.templateVariables());
 
-            javaMailSender.send(mailMessage);
-            System.out.println("Email enviado!");
-        }
-
-        catch (Exception e) {
+            helper.setText(html, true);
+            javaMailSender.send(message);
+        } catch (Exception e) {
             System.out.println("Erro ao enviar email: " + e.getLocalizedMessage());
         }
     }
