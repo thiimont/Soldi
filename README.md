@@ -94,27 +94,28 @@ O projeto foi desenvolvido seguindo as melhores práticas de desenvolvimento, co
 ## 🚀 Tecnologias Utilizadas
 
 ### Frontend
-| Tecnologia | Versão | Descrição |
-|------------|--------|-----------|
+| Tecnologia | Versão | Descrição                                |
+|------------|--------|------------------------------------------|
 | **React** | 18.3.1 | Biblioteca para construção de interfaces |
 | **TypeScript** | 5.5.3 | Superset JavaScript com tipagem estática |
-| **Vite** | 5.4.2 | Build tool e dev server |
-| **React Router** | 6.x | Roteamento de páginas |
-| **Axios** | 1.7.7 | Cliente HTTP para API REST |
-| **Recharts** | 2.x | Biblioteca de gráficos (Área) |
-| **Chart.js** | 4.x | Biblioteca de gráficos (Barras/Pizza) |
+| **Vite** | 5.4.2 | Build tool e dev server                  |
+| **React Router** | 6.x | Roteamento de páginas                    |
+| **Axios** | 1.7.7 | Cliente HTTP para API REST               |
+| **Recharts** | 2.x | Biblioteca de gráficos (Área)            |
+| **Chart.js** | 4.x | Biblioteca de gráficos (Barras/Pizza)    |
 
 ### Backend
-| Tecnologia | Versão | Descrição |
-|------------|--------|-----------|
-| **Spring Boot** | 3.5.7 | Framework Java para backend |
-| **Java** | 24 | Linguagem de programação |
-| **PostgreSQL** | 16 | Banco de dados relacional |
-| **Spring Security** | 6.3.x | Autenticação e autorização |
-| **JWT (Auth0 Java JWT)** | 4.4.0 | JSON Web Tokens |
-| **OpenAI (Spring AI)** | 1.1.0 | Integração com IA |
-| **Lombok** | 1.18.x | Redução de boilerplate |
+| Tecnologia                      | Versão | Descrição                      |
+|---------------------------------|--------|--------------------------------|
+| **Spring Boot**                 | 3.5.7  | Framework Java para backend    |
+| **Java**                        | 24     | Linguagem de programação       |
+| **PostgreSQL**                  | 16     | Banco de dados relacional      |
+| **Spring Security**             | 6.3.x  | Autenticação e autorização     |
+| **JWT (Auth0 Java JWT)**        | 4.4.0  | JSON Web Tokens                |
+| **OpenAI (Spring AI)**          | 1.1.0  | Integração com IA              |
+| **Lombok**                      | 1.18.x | Redução de boilerplate         |
 | **Swagger/OpenAPI (Springdoc)** | 2.8.14 | Documentação automática da API |
+| **Thymeleaf**                   | 3.5.7  | Templates para emails          |
 
 ### DevOps & Tools
 - **Git/GitHub** - Controle de versão
