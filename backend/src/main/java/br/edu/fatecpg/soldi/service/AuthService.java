@@ -15,6 +15,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Service
 @RequiredArgsConstructor
 public class AuthService {
@@ -43,7 +46,11 @@ public class AuthService {
         novoUsuario.setNome(request.nome());
 
         usuarioRepository.save(novoUsuario);
-//        emailService.enviarEmail(new EmailDetails(request.email(), "Bem-vindo(a) ao Soldi, " + request.nome() + "! \uD83D\uDCCA\n\nAproveite o nosso sistema de gerenciamento de finanças pessoais.\n\nAtenciosamente,\nEquipe Soldi", "Soldi - cadastro realizado com sucesso!"));
+
+        Map<String, Object> templateVariables = new HashMap<>();
+        templateVariables.put("nome", novoUsuario.getNome());
+        emailService.enviarEmail(new EmailDetails(novoUsuario.getEmail(), "Bem-vindo(a) ao Soldi!", templateVariables), "boasvindas.html");
+        
         return new RegistrarResponseDTO(novoUsuario.getNome(), novoUsuario.getEmail());
     }
 }
